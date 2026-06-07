@@ -1,32 +1,71 @@
 # AI Image Generation Studio
 
-An end-to-end AI image generation platform built using Stable Diffusion, LoRA, ControlNet, Gradio, FastAPI, and Hugging Face.
+## Overview
+
+AI Image Generation Studio is a Generative AI application built using Python and Gradio.
+
+The project demonstrates:
+
+- Text-to-Image Generation
+- Image-to-Image Transformation
+- Image Inpainting
+- ControlNet Conditioning
+- LoRA Training Interface
 
 ## Features
 
-* Text-to-Image Generation
-* Image-to-Image Translation
-* Inpainting and Outpainting
-* DreamBooth LoRA Training
-* ControlNet Conditioning
-* Gradio Web Interface
-* FastAPI Backend
-* Hugging Face Deployment
+### Text-to-Image
+Generate images from text prompts using Stable Diffusion concepts.
+
+### Image-to-Image
+Transform uploaded images using AI-based workflows.
+
+### Inpainting
+Modify selected regions of an image using prompts.
+
+### ControlNet
+Guide image generation using structural conditions.
+
+### LoRA Training
+Configure and train LoRA adapters for custom fine-tuning.
 
 ## Tech Stack
 
-* Python
-* Diffusers
-* Stable Diffusion XL Turbo
-* Gradio
-* FastAPI
-* Hugging Face
-* Google Colab
-* PyTorch
+- Python
+- Gradio
+- Pillow
+- OpenCV
+- Hugging Face
+- Google Colab
+- Stable Diffusion
 
-## Project Status
+## Project Structure
 
-Phase 1 Completed:
+AI-Image-Generation-Studio/
+│
+├── app.py
+├── README.md
+├── requirements.txt
+│
+├── assets/
+├── outputs/
+├── training/
+│
+└── src/
+    ├── text_to_image.py
+    ├── image_to_image.py
+    ├── inpaint.py
+    ├── controlnet.py
+    └── lora_training.py
 
-* Stable Diffusion Setup
-* Text-to-Image Generation
+## Future Enhancements
+
+- Stable Diffusion XL Integration
+- Real ControlNet Models
+- DreamBooth LoRA Training
+- FastAPI Backend
+- Hugging Face Deployment
+
+## Author
+
+Manikonda Saithriguna
