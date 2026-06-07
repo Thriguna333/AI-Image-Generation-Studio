@@ -1,5 +1,48 @@
 import streamlit as st
 from PIL import Image, ImageFilter, ImageOps
+st.markdown("""
+<style>
+.main {
+    background-color: #0E1117;
+}
+
+.hero {
+    text-align:center;
+    padding:50px;
+    border-radius:20px;
+    background: linear-gradient(135deg,#4F46E5,#7C3AED,#EC4899);
+    color:white;
+    margin-bottom:20px;
+}
+
+.feature-card{
+    background:#1E293B;
+    padding:20px;
+    border-radius:15px;
+    text-align:center;
+    border:1px solid #334155;
+}
+
+.metric-card{
+    background:#111827;
+    padding:15px;
+    border-radius:15px;
+    text-align:center;
+}
+</style>
+""", unsafe_allow_html=True)
+
+st.markdown("""
+<style>
+section[data-testid="stSidebar"]{
+    background-color:#111827;
+}
+
+section[data-testid="stSidebar"] *{
+    color:white;
+}
+</style>
+""", unsafe_allow_html=True)
 
 # ==================================
 # PAGE CONFIG
@@ -12,23 +55,79 @@ st.set_page_config(
 )
 
 # ==================================
-# SIDEBAR
+# PROFESSIONAL SIDEBAR
 # ==================================
 
-st.sidebar.title("🎨 AI Studio")
+with st.sidebar:
 
-page = st.sidebar.radio(
-    "Navigation",
-    [
-        "🏠 Home",
-        "🖼️ Text-to-Image",
-        "🔄 Image-to-Image",
-        "✨ Inpainting",
-        "🎯 ControlNet",
-        "🧠 LoRA Training",
-        "ℹ️ About"
-    ]
-)
+    st.markdown("""
+    <div style="
+        text-align:center;
+        padding:20px;
+        border-radius:15px;
+        background:linear-gradient(135deg,#4F46E5,#7C3AED,#EC4899);
+        color:white;
+        margin-bottom:20px;
+    ">
+        <h2>🎨 AI Studio</h2>
+        <p>Generative AI Platform</p>
+    </div>
+    """, unsafe_allow_html=True)
+
+    page = st.radio(
+        "📌 Navigation",
+        [
+            "🏠 Home",
+            "🖼️ Text-to-Image",
+            "🔄 Image-to-Image",
+            "✨ Inpainting",
+            "🎯 ControlNet",
+            "🧠 LoRA Training",
+            "ℹ️ About"
+        ]
+    )
+
+    st.markdown("---")
+
+    st.markdown("### 🚀 Project Status")
+
+    st.success("Text-to-Image")
+    st.success("Image-to-Image")
+    st.success("Inpainting")
+    st.success("ControlNet")
+    st.success("LoRA Training")
+
+    st.markdown("---")
+
+    st.markdown("### 📊 Quick Stats")
+
+    st.metric("Modules", "5")
+    st.metric("Version", "1.0")
+    st.metric("Deployment", "Live")
+
+    st.markdown("---")
+
+    st.markdown("""
+    ### 🛠 Tech Stack
+
+    - Python
+    - Streamlit
+    - Pillow
+    - OpenCV
+    - Stable Diffusion Concepts
+    - ControlNet Concepts
+    - LoRA Concepts
+    """)
+
+    st.markdown("---")
+
+    st.markdown("""
+    <div style="text-align:center">
+        <h4>👨‍💻 Developer</h4>
+        <p><b>Manikonda Saithriguna</b></p>
+        <p>AI Internship Project 2026</p>
+    </div>
+    """, unsafe_allow_html=True)
 
 # ==================================
 # HOME PAGE
@@ -36,54 +135,95 @@ page = st.sidebar.radio(
 
 if page == "🏠 Home":
 
-    st.title("🎨 AI Image Generation Studio")
-
     st.markdown("""
-    ### Generate • Transform • Edit • Control Images with AI
+    <div class="hero">
+        <h1>🎨 AI Image Generation Studio</h1>
+        <h3>Generate • Transform • Edit • Fine-Tune Images with AI</h3>
+        <p>A Unified Generative AI Platform</p>
+    </div>
+    """, unsafe_allow_html=True)
 
-    Welcome to the **AI Image Generation Studio**.
+    st.markdown("## 🚀 Core Features")
 
-    This project demonstrates various Generative AI workflows including:
-
-    - 🖼️ Text-to-Image Generation
-    - 🔄 Image-to-Image Transformation
-    - ✨ AI Inpainting
-    - 🎯 ControlNet Conditioning
-    - 🧠 LoRA Fine-Tuning
-
-    Built as an AI Internship Project to demonstrate modern image generation concepts.
-    """)
-
-    st.divider()
-
-    col1, col2, col3 = st.columns(3)
+    col1, col2 = st.columns(2)
 
     with col1:
-        st.info("🖼️ Text-to-Image\n\nGenerate images using prompts.")
+        st.markdown("""
+        <div class="feature-card">
+        <h3>🖼️ Text-to-Image</h3>
+        <p>Create images from text prompts.</p>
+        </div>
+        """, unsafe_allow_html=True)
 
     with col2:
-        st.success("🔄 Image-to-Image\n\nTransform existing images.")
+        st.markdown("""
+        <div class="feature-card">
+        <h3>🔄 Image-to-Image</h3>
+        <p>Transform uploaded images.</p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    col3, col4 = st.columns(2)
 
     with col3:
-        st.warning("✨ Inpainting\n\nEdit selected image regions.")
-
-    col4, col5 = st.columns(2)
+        st.markdown("""
+        <div class="feature-card">
+        <h3>✨ Inpainting</h3>
+        <p>Edit specific image regions.</p>
+        </div>
+        """, unsafe_allow_html=True)
 
     with col4:
-        st.info("🎯 ControlNet\n\nGuide image generation.")
+        st.markdown("""
+        <div class="feature-card">
+        <h3>🎯 ControlNet</h3>
+        <p>Guide generation using conditions.</p>
+        </div>
+        """, unsafe_allow_html=True)
 
-    with col5:
-        st.success("🧠 LoRA Training\n\nConfigure fine-tuning workflows.")
+    st.markdown("")
+
+    st.markdown("""
+    <div class="feature-card">
+    <h3>🧠 LoRA Training</h3>
+    <p>Configure custom fine-tuning workflows.</p>
+    </div>
+    """, unsafe_allow_html=True)
 
     st.divider()
 
-    st.subheader("🚀 Project Objective")
+    st.markdown("## 📊 Project Statistics")
 
-    st.write("""
-    The objective of this project is to provide a unified interface
-    for understanding and demonstrating image generation workflows
-    using modern Generative AI concepts.
+    c1, c2, c3 = st.columns(3)
+
+    with c1:
+        st.metric("Modules", "5")
+
+    with c2:
+        st.metric("Technologies", "6+")
+
+    with c3:
+        st.metric("Platform", "Unified")
+
+    st.divider()
+
+    st.markdown("""
+    ## 🎯 Project Objective
+
+    This project demonstrates modern Generative AI workflows including:
+
+    - Text-to-Image Generation
+    - Image-to-Image Transformation
+    - Inpainting
+    - ControlNet Conditioning
+    - LoRA Fine-Tuning
+
+    Developed as an AI Internship Project.
     """)
+
+    st.success("✅ Deployment Successful")
+
+    st.info("👨‍💻 Developed by Manikonda Saithriguna")
 
 # ==================================
 # TEXT TO IMAGE
