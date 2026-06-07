@@ -1,0 +1,11 @@
+venv/
+.gradio/
+**pycache**/
+*.pyc
+*.pyo
+*.pyd
+.env
+outputs/*.png
+outputs/*.jpg
+outputs/*.jpeg
+.DS_Store
